@@ -1,8 +1,16 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search } from 'lucide-react';
+import { Search, Dragon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { 
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,7 +28,10 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-pokedex-red to-pokedex-dark shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-xl font-bold text-white">Pokédex</Link>
+          <Link to="/" className="flex items-center text-xl font-bold text-white">
+            <Dragon className="mr-2 h-6 w-6" />
+            Pokédex
+          </Link>
           
           <form onSubmit={handleSearch} className="hidden md:flex items-center bg-white/10 rounded-full px-3 py-1">
             <Input 
@@ -35,7 +46,28 @@ const Navbar = () => {
             </button>
           </form>
           
-          <div className="flex space-x-4">
+          <NavigationMenu className="hidden md:block">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <Link to="/search" className="text-white hover:text-gray-200 px-3 py-2">
+                  Search
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link to="/types" className="text-white hover:text-gray-200 px-3 py-2">
+                  Types
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link to="/compare" className="text-white hover:text-gray-200 px-3 py-2">
+                  Compare
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          
+          {/* Mobile menu links */}
+          <div className="flex space-x-4 md:hidden">
             <Link to="/search" className="text-white hover:text-gray-200">Search</Link>
             <Link to="/types" className="text-white hover:text-gray-200">Types</Link>
             <Link to="/compare" className="text-white hover:text-gray-200">Compare</Link>

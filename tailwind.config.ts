@@ -32,7 +32,8 @@ export default {
 				pokedex: {
 					red: "#EF4444",
 					light: "#FECACA",
-          			dark: "#991B1B"
+					dark: "#991B1B",
+					blue: "#3B82F6"
 				},
 				pokemon: {
 					normal: "#A8A77A",
@@ -53,6 +54,8 @@ export default {
 					dark: "#705746",
 					steel: "#B7B7CE",
 					fairy: "#D685AD",
+					light: "#8E9196",
+					dark: "#1A1F2C"
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
