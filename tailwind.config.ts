@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -27,6 +28,31 @@ export default {
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
+				},
+				pokedex: {
+					red: "#EF4444",
+					light: "#FECACA",
+          			dark: "#991B1B"
+				},
+				pokemon: {
+					normal: "#A8A77A",
+					fire: "#EE8130",
+					water: "#6390F0",
+					electric: "#F7D02C",
+					grass: "#7AC74C",
+					ice: "#96D9D6",
+					fighting: "#C22E28",
+					poison: "#A33EA1",
+					ground: "#E2BF65",
+					flying: "#A98FF3",
+					psychic: "#F95587",
+					bug: "#A6B91A",
+					rock: "#B6A136",
+					ghost: "#735797",
+					dragon: "#6F35FC",
+					dark: "#705746",
+					steel: "#B7B7CE",
+					fairy: "#D685AD",
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -84,11 +110,21 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-light': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-light': 'pulse-light 2s ease-in-out infinite'
 			}
 		}
 	},
