@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "react-router-dom";
@@ -8,6 +7,7 @@ import {
   getEnglishDescription 
 } from "@/services/pokemonService";
 import TypeBadge from "@/components/TypeBadge";
+import TypeEffectiveness from "@/components/TypeEffectiveness";
 import { 
   formatPokemonId, 
   formatHeight, 
@@ -20,13 +20,11 @@ import { ArrowLeft } from "lucide-react";
 const DetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   
-  // Fetch pokemon details
   const { data: pokemon, isLoading: isLoadingPokemon } = useQuery({
     queryKey: ['pokemon', id],
     queryFn: () => fetchPokemon(id || ''),
   });
 
-  // Fetch pokemon species for description
   const { data: species, isLoading: isLoadingSpecies } = useQuery({
     queryKey: ['pokemonSpecies', id],
     queryFn: () => {
@@ -41,7 +39,6 @@ const DetailPage: React.FC = () => {
   const description = getEnglishDescription(species);
   const isLoading = isLoadingPokemon || isLoadingSpecies;
   
-  // Background gradient based on primary type
   const primaryType = pokemon?.types[0]?.type.name || 'normal';
   const bgClass = `bg-pokemon-${primaryType}`;
 
@@ -136,7 +133,7 @@ const DetailPage: React.FC = () => {
               </div>
             </div>
             
-            <div>
+            <div className="space-y-6">
               <h2 className="text-xl font-bold mb-2">Base Stats</h2>
               <div className="bg-gray-100 rounded-lg p-4">
                 {pokemon.stats.map((statInfo, index) => (
@@ -156,6 +153,13 @@ const DetailPage: React.FC = () => {
                   </div>
                 ))}
               </div>
+              
+              {pokemon.types.map((typeInfo) => (
+                <TypeEffectiveness
+                  key={typeInfo.type.name}
+                  type={typeInfo.type.name}
+                />
+              ))}
             </div>
           </div>
         </div>
