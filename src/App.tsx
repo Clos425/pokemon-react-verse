@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import DetailPage from "./pages/DetailPage";
 import SearchPage from "./pages/SearchPage";
 import TypesPage from "./pages/TypesPage";
+import ComparePage from "./pages/ComparePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
               <Route path="/pokemon/:id" element={<DetailPage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/types" element={<TypesPage />} />
+              <Route path="/compare" element={<ComparePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

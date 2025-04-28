@@ -1,8 +1,7 @@
-
 import React from 'react';
 import TypeBadge from './TypeBadge';
 import { getTypeEffectiveness } from '@/utils/typeEffectiveness';
-import { compare } from 'lucide-react';
+import { SearchCheck } from 'lucide-react';
 
 interface TypeEffectivenessProps {
   type: string;
@@ -14,7 +13,7 @@ const TypeEffectiveness: React.FC<TypeEffectivenessProps> = ({ type }) => {
   return (
     <div className="mt-4">
       <div className="flex items-center gap-2 mb-2">
-        <compare className="w-5 h-5" />
+        <SearchCheck className="w-5 h-5" />
         <h3 className="text-lg font-semibold">Type Effectiveness</h3>
       </div>
       <div className="space-y-4">
